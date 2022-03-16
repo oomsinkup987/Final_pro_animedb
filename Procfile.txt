@@ -1,2 +1,3 @@
 <process type>: <command>
 web: python main.py runserver
+worker	celeryd --loglevel=INFO
