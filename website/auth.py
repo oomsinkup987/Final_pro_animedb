@@ -180,7 +180,7 @@ def callback():
     user = User(
     id_=unique_id, name=users_name, email=users_email, profile_pic=picture
     )
-    return redirect(url_for('auth.home'))
+    return render_template("home.html")
 
 @auth.route("/login/google")
 def google():
