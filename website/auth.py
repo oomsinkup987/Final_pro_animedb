@@ -130,21 +130,6 @@ def sign_up():
 
     return render_template("signup.html", user= current_user)
 
-@auth.route("/index")
-def index():
-    if current_user.is_authenticated:
-        return (
-            "<p>Hello, {}! You're logged in! Email: {}</p>"
-            "<div><p>Google Profile Picture:</p>"
-            '<img src="{}" alt="Google profile pic"></img></div>'
-            '<a class="button" href="/logout">Logout</a>'.format(
-                current_user.name, current_user.email, current_user.profile_pic
-            )
-        )
-    else:
-        return '<a class="button" href="/login">Google Login</a>'
-
-
 @auth.route("/login/callback")
 def callback():
     # Get authorization code Google sent back to you
@@ -175,12 +160,13 @@ def callback():
         users_email = userinfo_response.json()["email"]
         picture = userinfo_response.json()["picture"]
         users_name = userinfo_response.json()["given_name"]
+        return render_template("home.html")
     else:
         return "User email not available or not verified by Google.", 400
     user = User(
     id_=unique_id, name=users_name, email=users_email, profile_pic=picture
     )
-    return render_template("home.html")
+    
 
 @auth.route("/login/google")
 def google():
