@@ -1,0 +1,2 @@
+<process type>: <command>
+web: python main.py
