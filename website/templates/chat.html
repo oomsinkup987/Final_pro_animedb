@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <form method="POST">
+      <style>
+        body  {
+          background-image: url("https://wallpaperaccess.com/full/815769.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        #bodybox {
+              margin: auto;
+              max-width: auto;
+              font: 15px arial, sans-serif;
+              background-color: #ffffff;
+              border-style: solid;
+              border-width: 1px;
+              padding-top: 20px;
+              padding-bottom: 25px;
+              padding-right: 25px;
+              padding-left: 25px;
+              box-shadow: 5px 5px 5px grey;
+              border-radius: 15px;
+        }
+      #chatborder {
+        border-style: solid;
+        background-color: #f6f9f6;
+        border-width: 3px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        padding-right: 20px;
+        padding-left: 15px;
+        border-radius: 15px;
+      }
+      
+      .chatlog {
+        font: 15px arial, sans-serif;
+      }
+      
+      #chatbox {
+        font: 17px arial, sans-serif;
+        height: 22px;
+        width: 50%;
+      }
+      
+      h1 {
+        margin: auto;
+      }
+      
+      pre {
+        background-color: #f0f0f0;
+        margin-left: 20px;
+      }
+      .content {
+        max-width: 800px;
+        margin: auto;
+      }
+        
+        </style>
+        <h3 align="center">Comment</h3>
+        <div class="content">
+            <div style="height:550px;width:800px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+            <div class="container-md" style="background-color: #ffffff">
+
+            <div class="post-comments">
+              <form>
+                <div id='bodybox'>
+                  <div id='chatborder'>
+                    {% for item in data %}
+                    <p id="chatlog6" class="chatlog"> User id : {{item.user_id}}  &nbsp;</p>
+                    <p id="chatlog7" class="chatlog">Anime Name: {{item.ani_name}}&nbsp;</p>
+                    <p id="chatlog5" class="chatlog">Comment: {{item.data}}&nbsp;</p>
+                    <p id="chatlog4" class="chatlog">Date: {{item.date}}&nbsp;</p>
+                    {%endfor%}
+                  </div>
+                </form>
+            </div>
+          </div>
+        </div>
+        </div>
+        <h4 >Anime name</h3>
+          <input type="text" class="form-control"
+          id="ani_name"name="ani_name" placeholder="Anime Name..." 
+           onfocus="placeHolder()">
+           <h4 >Your comment</h3>
+          <input type="text" class="form-control"
+                      id="data"name="data" placeholder="Your comment..." 
+                       onfocus="placeHolder()">
+                    <button type="submit" class="btn btn-info btn-rounded">Send</button>
+      </form>
+{% endblock %}
