@@ -1,0 +1,16 @@
+click == 8.0.3
+colorama == 0.4.4
+Flask == 2.0.2
+Flask-Login == 0.5.0
+Flask-SQLAlchemy == 2.5.1
+Jinja2 == 3.0.3
+oauthlib == 3.2.0
+pip == 22.0.4
+pycparser == 2.21
+pyOpenSSL == 22.0.0
+requests == 2.21.0
+setuptools == 57.4.0
+SQLAlchemy == 1.4.32
+tmdbv3api == 1.7.6
+urllib3 == 1.24.3
+Werkzeug == 2.0.2
