@@ -180,14 +180,13 @@ def callback():
     user = User(
     id_=unique_id, name=users_name, email=users_email, profile_pic=picture
     )
-   if not User.get(unique_id):
-    User.create(unique_id, users_name, users_email, picture)
+  
 
-   # Begin user session by logging the user in
-   login_user(user)
+    # Begin user session by logging the user in
+    login_user(user)
 
-   # Send user back to homepage
-   return redirect(url_for('auth.home'))
+    # Send user back to homepage
+    return redirect(url_for('auth.home'))
 
 @auth.route("/login/google")
 def google():
