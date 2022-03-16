@@ -182,12 +182,6 @@ def callback():
     )
   
 
-    # Begin user session by logging the user in
-    login_user(user)
-
-    # Send user back to homepage
-    return redirect(url_for('auth.home'))
-
 @auth.route("/login/google")
 def google():
     google_provider_cfg = get_google_provider_cfg()
