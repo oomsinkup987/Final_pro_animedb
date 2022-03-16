@@ -166,7 +166,8 @@ def callback():
     user = User(
     id_=unique_id, name=users_name, email=users_email, profile_pic=picture
     )
-    
+    if current_user.is_authenticated:
+       return render_template("home.html", user= current_user)
 
 @auth.route("/login/google")
 def google():
