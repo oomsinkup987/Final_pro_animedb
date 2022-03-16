@@ -166,9 +166,15 @@ def callback():
     user = User(
     id_=unique_id, name=users_name, email=users_email, profile_pic=picture
     )
-    if current_user.is_authenticated:
-       return render_template(redirect(url_for('/')), user= current_user)
+    if not User.get(unique_id):
+        User.create(unique_id, users_name, users_email, picture)
 
+    # Begin user session by logging the user in
+    login_user(user
+    # Send user back to homepage
+    return redirect(url_for("/"))
+               
+               
 @auth.route("/login/google")
 def google():
     google_provider_cfg = get_google_provider_cfg()
