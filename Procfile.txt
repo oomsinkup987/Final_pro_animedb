@@ -1,2 +1,2 @@
 <process type>: <command>
-web: python main.py
+web: python main.py runserver
